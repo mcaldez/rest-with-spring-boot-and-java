@@ -11,6 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.br.exceptions.ExceptionResponse;
+import com.br.exceptions.UnsuportedMathOperationException;
 
 @RestController
 @ControllerAdvice
@@ -20,7 +21,21 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	public final ResponseEntity<ExceptionResponse> handleAllExceptions(
 			Exception ex, WebRequest request){
 		ExceptionResponse exceptionResponse = new ExceptionResponse(
-				new Date(), ex.getMessage(), request.getDescription(false));
+				new Date(),
+				ex.getMessage(),
+				request.getDescription(false));
+		
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@ExceptionHandler(UnsuportedMathOperationException.class)
+	public final ResponseEntity<ExceptionResponse> handleBadRequestExceptions(
+			Exception ex, WebRequest request){
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(),
+				ex.getMessage(),
+				request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 }
