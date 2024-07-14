@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.br.exceptions.ResourceNotFoundException;
+import com.br.mapper.DozerMapper;
 import com.br.data.vo.v1.PersonVO;
 import com.br.repositories.PersonRepository;
 
@@ -22,7 +23,7 @@ public class PersonServices {
 	public List<PersonVO> findAll() {
 		logger.info("Findig all people");
 		 
-		return repository.findAll() ;
+		return DozerMapper.parseListObjects(repository.findAll(), PersonVO.class);
 	}
 	
 	public PersonVO findById(Long id) {
