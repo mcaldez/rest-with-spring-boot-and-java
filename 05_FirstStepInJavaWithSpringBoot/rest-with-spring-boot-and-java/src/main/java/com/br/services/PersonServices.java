@@ -3,11 +3,14 @@ package com.br.services;
 import java.util.List;
 import java.util.logging.Logger;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.br.exceptions.ResourceNotFoundException;
 import com.br.data.vo.v1.PersonVO;
+import com.br.exceptions.ResourceNotFoundException;
+import com.br.model.Person;
 import com.br.repositories.PersonRepository;
 
 @Service
@@ -15,6 +18,20 @@ public class PersonServices {
 
 	
 	private Logger logger = Logger.getLogger(PersonServices.class.getName());
+	
+	private static ModelMapper mapper = new ModelMapper();
+	
+	
+	static {
+	    mapper.createTypeMap(Person.class, PersonVO.class)
+	          .addMappings(new PropertyMap<Person, PersonVO>() {
+	              @Override
+	              protected void configure() {
+	                  map().setId(source.getId());
+	              }
+	          });
+	}
+	
 	
 	@Autowired
 	PersonRepository repository;
