@@ -1,8 +1,8 @@
-package com.br.repositories;
+package br.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.br.model.Person;
+import br.model.Person;
 
 
 public interface PersonRepository extends JpaRepository<Person, Long>{}

@@ -1,9 +1,10 @@
-package com.br.data.vo.v1;
+package br.data.vo.v2;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
-public class PersonVO implements Serializable{
+public class PersonVOV2 implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -17,7 +18,9 @@ public class PersonVO implements Serializable{
 	
 	private String  gender;
 	
-	public PersonVO() {}
+	private Date birthdDay;
+	
+	public PersonVOV2() {}
 
 	public String getFirstName() {
 		return firstName;
@@ -59,9 +62,17 @@ public class PersonVO implements Serializable{
 		this.id = id;
 	}
 
+	public Date getBirthdDay() {
+		return birthdDay;
+	}
+
+	public void setBirthdDay(Date birthdDay) {
+		this.birthdDay = birthdDay;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(address, firstName, gender, id, lastName);
+		return Objects.hash(address, birthdDay, firstName, gender, id, lastName);
 	}
 
 	@Override
@@ -72,11 +83,13 @@ public class PersonVO implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PersonVO other = (PersonVO) obj;
-		return Objects.equals(address, other.address) && Objects.equals(firstName, other.firstName)
-				&& Objects.equals(gender, other.gender) && Objects.equals(id, other.id)
-				&& Objects.equals(lastName, other.lastName);
+		PersonVOV2 other = (PersonVOV2) obj;
+		return Objects.equals(address, other.address) && Objects.equals(birthdDay, other.birthdDay)
+				&& Objects.equals(firstName, other.firstName) && Objects.equals(gender, other.gender)
+				&& Objects.equals(id, other.id) && Objects.equals(lastName, other.lastName);
 	}
+
+	
 	
 	
 }

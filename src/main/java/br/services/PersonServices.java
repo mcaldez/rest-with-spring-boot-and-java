@@ -1,4 +1,4 @@
-package com.br.services;
+package br.services;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -6,13 +6,13 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.br.exceptions.ResourceNotFoundException;
-import com.br.mapper.DozerMapper;
-import com.br.mapper.custom.PersonMapper;
-import com.br.model.Person;
-import com.br.data.vo.v1.PersonVO;
-import com.br.data.vo.v2.PersonVOV2;
-import com.br.repositories.PersonRepository;
+import br.data.vo.v1.PersonVO;
+import br.data.vo.v2.PersonVOV2;
+import br.exceptions.ResourceNotFoundException;
+import br.mapper.DozerMapper;
+import br.mapper.custom.PersonMapper;
+import br.model.Person;
+import br.repositories.PersonRepository;
 
 @Service
 public class PersonServices {

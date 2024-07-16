@@ -1,11 +1,11 @@
-package com.br.mapper.custom;
+package br.mapper.custom;
 
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import com.br.data.vo.v2.PersonVOV2;
-import com.br.model.Person;
+import br.data.vo.v2.PersonVOV2;
+import br.model.Person;
 
 @Service
 public class PersonMapper {
