@@ -1,4 +1,4 @@
-package com.br.mapper;
+package br.mapper;
 
 import java.util.ArrayList;
 import java.util.List;

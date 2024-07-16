@@ -3,8 +3,8 @@ package com.br.unittests.mapper.mocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.br.data.vo.v1.PersonVO;
-import com.br.model.Person;
+import br.data.vo.v1.PersonVO;
+import br.model.Person;
 
 public class MockPerson {
 

@@ -1,4 +1,4 @@
-package com.br.config;
+package br.config;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -8,8 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer{
+	
+	private static final MediaType MEDIA_TYPE_APPLICATION_YML = MediaType.valueOf("application/x-yaml");
 
-	//Media Type por Query Param exemplo: http://localhost:8080/api/person/v1?mediaType=xml
+	//Media Type Query Param exemplo: http://localhost:8080/api/person/v1?mediaType=xml
 //	@Override
 //	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
 //		configurer.favorParameter(true)
@@ -21,7 +23,8 @@ public class WebConfig implements WebMvcConfigurer{
 //		.mediaType("xml", MediaType.APPLICATION_XML);
 //	}
 //	
-	//Media Type por header param exemplo: http://localhost:8080/api/person/v1
+	//Media Type header param exemplo: http://localhost:8080/api/person/v1
+	//Colocar no header Accept:application/xml
 		@Override
 		public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
 		configurer.favorParameter(false)
@@ -29,7 +32,8 @@ public class WebConfig implements WebMvcConfigurer{
 		.useRegisteredExtensionsOnly(false)
 		.defaultContentType(MediaType.APPLICATION_JSON)
 		.mediaType("Json", MediaType.APPLICATION_JSON)
-		.mediaType("xml", MediaType.APPLICATION_XML);
+		.mediaType("xml", MediaType.APPLICATION_XML)
+		.mediaType("x-yaml", MEDIA_TYPE_APPLICATION_YML);
 		}
 
 	
