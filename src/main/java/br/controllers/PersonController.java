@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.data.vo.v1.PersonVO;
-import br.data.vo.v2.PersonVOV2;
 import br.services.PersonServices;
 import br.util.MediaType;
 

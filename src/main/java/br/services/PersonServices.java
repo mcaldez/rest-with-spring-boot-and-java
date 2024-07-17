@@ -1,19 +1,18 @@
 package br.services;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
 import br.controllers.PersonController;
 import br.data.vo.v1.PersonVO;
-import br.data.vo.v2.PersonVOV2;
 import br.exceptions.ResourceNotFoundException;
 import br.mapper.DozerMapper;
-import br.mapper.custom.PersonMapper;
 import br.model.Person;
 import br.repositories.PersonRepository;
 
@@ -26,8 +25,8 @@ public class PersonServices {
 	@Autowired
 	PersonRepository repository;
 	
-	@Autowired
-	PersonMapper personMaper;
+//	@Autowired
+//	PersonMapper personMaper;
 	
 	public List<PersonVO> findAll() {
 		logger.info("Findig all people");
