@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import br.controllers.PersonController;
 import br.data.vo.v1.PersonVO;
+import br.exceptions.RequiredObjectsNullException;
 import br.exceptions.ResourceNotFoundException;
 import br.mapper.DozerMapper;
 import br.model.Person;
@@ -47,6 +48,9 @@ public class PersonServices {
 	}
 	
 	public PersonVO create(PersonVO person) {
+		if(person == null) {
+			throw new RequiredObjectsNullException();
+		}
 		logger.info("Creating one person!");
 		var entity = DozerMapper.parseObject(person, Person.class);
 		var vo =  DozerMapper.parseObject(repository.save(entity), PersonVO.class);
@@ -56,6 +60,9 @@ public class PersonServices {
 	
 	
 	public PersonVO update(PersonVO person) {
+		if(person == null) {
+			throw new RequiredObjectsNullException();
+		}
 		logger.info("Updating one person!");
 		
 		var entity = repository.findById(person.getKey())
